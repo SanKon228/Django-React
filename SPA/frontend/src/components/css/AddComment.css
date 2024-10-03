@@ -1,0 +1,25 @@
+.add-comment-form {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.add-comment-form .form-group {
+    margin-bottom: 15px;
+}
+
+.add-comment-form textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.add-comment-form input[type="file"] {
+    display: block;
+    margin-top: 5px;
+}
+
+.add-comment-form button {
+    padding: 10px 15px;
+}

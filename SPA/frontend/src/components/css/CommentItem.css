@@ -1,0 +1,13 @@
+.comment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.comment-item {
+    margin-bottom: 15px;
+}
+
+.comment-item img {
+    display: block;
+    margin-top: 5px;
+}

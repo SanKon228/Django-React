@@ -1,0 +1,8 @@
+.comment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-list li {
+    margin-bottom: 15px;
+}

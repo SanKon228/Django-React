@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: postgres_db
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - djangoreact
+
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: django_app
+    env_file:
+      - .env
+    volumes:
+      - ./SPA:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: sh -c "python manage.py makemigrations && \
+                   python manage.py migrate && \
+                   python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - djangoreact
+
+  react:
+    build:
+      context: ./SPA/frontend
+      dockerfile: Dockerfile
+    container_name: react_app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./SPA/frontend:/app
+      - /app/node_modules
+    command: npm start
+    depends_on:
+      - django
+    networks:
+      - djangoreact
+
+volumes:
+  postgres_data:
+
+networks:
+  djangoreact:
+    driver: bridge
