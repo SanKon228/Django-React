@@ -1,12 +1,76 @@
-# PostgreSQL налаштування
-POSTGRES_DB=
-POSTGRES_USER=
-POSTGRES_PASSWORD=
-POSTGRES_HOST=
-POSTGRES_PORT=
+Single Page Application
 
-# Django налаштування
-DEBUG=1
-SECRET_KEY=
-ALLOWED_HOSTS=localhost,127.0.0.1,[::1]
-DATABASE=postgres
+Backend на основі Django.
+Frontend на основі React.
+Проект використовує PostgreSQL як базу даних та може бути запущений
+ як у Docker середовищі, так і без Docker.
+
+Передумови
+Для запуску проекту без Docker необхідно встановити такі інструменти:
+
+1. Запуск проекту у Docker
+1.1. Кроки:
+Клонувати репозиторій:
+
+bash
+Копіювати код
+git clone https://github.com/SanKon228/Django-React.git
+Створити файл .env для налаштувань оточення: Приклад .env файлу:
+
+makefile
+Копіювати код
+POSTGRES_DB=назва_бази_даних
+POSTGRES_USER=користувач
+POSTGRES_PASSWORD=пароль
+Запустити Docker: Запусти всі сервіси (PostgreSQL, Django і React) за допомогою docker-compose:
+
+docker-compose up --build
+Ця команда:
+Створить контейнер для PostgreSQL.
+Збілдить Django додаток і запустить його на порту 8000.
+Збілдить React додаток і запустить його на порту 3000.
+1.2. Доступ до додатку:
+Django (Backend): http://localhost:8000
+React (Frontend): http://localhost:3000
+1.3. Зупинка контейнерів:
+Щоб зупинити контейнери, натисни CTRL+C або виконай команду:
+
+2. Запуск проекту без Docker
+2.1. Запуск Backend (Django)
+cd SPA
+python -m venv venv
+venv\Scripts\activate      # Windows
+pip install -r requirements.txt
+Створити файл .env для бази даних:
+
+makefile
+
+POSTGRES_DB=назва_бази_даних
+POSTGRES_USER=користувач
+POSTGRES_PASSWORD=пароль
+Створити базу даних у PostgreSQL:
+
+Виконай такі команди в PostgreSQL або через інструменти адміністрування:
+
+Виконати міграції:
+
+python manage.py makemigrations
+python manage.py migrate
+Запустити сервер Django:
+
+python manage.py runserver
+Проект буде доступний за адресою: http://localhost:8000
+
+2.2. Запуск Frontend (React)
+Перейти в папку frontend:
+
+bash
+Копіювати код
+cd SPA/frontend
+Встановити залежності:
+
+npm install
+Запустити React додаток:
+
+npm start
+React додаток буде доступний за адресою: http://localhost:3000
