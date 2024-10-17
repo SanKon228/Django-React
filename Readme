@@ -12,13 +12,9 @@ Frontend на основі React.
 1.1. Кроки:
 Клонувати репозиторій:
 
-bash
-Копіювати код
 git clone https://github.com/SanKon228/Django-React.git
 Створити файл .env для налаштувань оточення: Приклад .env файлу:
 
-makefile
-Копіювати код
 POSTGRES_DB=назва_бази_даних
 POSTGRES_USER=користувач
 POSTGRES_PASSWORD=пароль
@@ -39,20 +35,14 @@ React (Frontend): http://localhost:3000
 2.1. Запуск Backend (Django)
 cd SPA
 python -m venv venv
-venv\Scripts\activate      # Windows
+venv\Scripts\activate
 pip install -r requirements.txt
 Створити файл .env для бази даних:
-
-makefile
 
 POSTGRES_DB=назва_бази_даних
 POSTGRES_USER=користувач
 POSTGRES_PASSWORD=пароль
 Створити базу даних у PostgreSQL:
-
-Виконай такі команди в PostgreSQL або через інструменти адміністрування:
-
-Виконати міграції:
 
 python manage.py makemigrations
 python manage.py migrate
@@ -64,8 +54,6 @@ python manage.py runserver
 2.2. Запуск Frontend (React)
 Перейти в папку frontend:
 
-bash
-Копіювати код
 cd SPA/frontend
 Встановити залежності:
 
